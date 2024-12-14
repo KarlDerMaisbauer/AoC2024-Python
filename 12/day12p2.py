@@ -93,6 +93,13 @@ class Area:
                     overlaps += 2
         return overlaps
 
+df = pd.read_csv('song_lyrics.csv')
+
+# Select the first 100,000 rows
+df_subset = df.head(100000)
+
+# Write the subset to a new CSV file
+df_subset.to_csv('song_lyrics_small.csv', index=False)
     def calc_sides_inner(self, start_idx):
         prev_areas = self.calc_areas(self.members[start_idx])
         self.sides = 4 * len(prev_areas)
